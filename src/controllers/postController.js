@@ -123,6 +123,8 @@ let getPosts    =  async (req, res) => {
   
       const postDetails = await postModel.find({_id:postId})
         .populate('tags', 'name')
+        .populate('user', 'name username')
+
         
         res.status(200).json({ postDetails });
     } catch (error) {
